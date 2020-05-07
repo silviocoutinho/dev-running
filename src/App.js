@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
+import store from './redux';
+import { Provider } from 'react-redux';
+
+import Header from './Header';
+
+
 class App extends Component {
-  async componentDidMount() {
+ /* async componentDidMount() {
     let token = localStorage.getItem('token');
     if (!token) {
       const login = await axios.post('http://localhost:3001/users/login', {
@@ -15,12 +21,15 @@ class App extends Component {
     }
     const decoded = jwtDecode(token);
     console.log(decoded);
-  }
+  }*/
   render() {
     return (
-      <div className='App'>
-        <p>OK</p>
-      </div>
+      <Provider store={store}>
+        <div className='App'>
+          <Header />
+          <p>OK</p>
+        </div>
+      </Provider>
     );
   }
 }
