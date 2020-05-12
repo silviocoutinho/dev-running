@@ -11,19 +11,7 @@ import Restrito from './screens/Restrito';
 import Login from './screens/Login';
 
 class App extends Component {
-  /* async componentDidMount() {
-    let token = localStorage.getItem('token');
-    if (!token) {
-      const login = await axios.post('http://localhost:3001/users/login', {
-        email: 'tuliofaria@devpleno.com',
-        passwd: 'abc123',
-      });
-      token = login.data.token;
-      localStorage.setItem('token', token);
-    }
-    const decoded = jwtDecode(token);
-    console.log(decoded);
-  }*/
+
   render() {
     return (
       <Provider store={store}>

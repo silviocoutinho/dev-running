@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ActionCreator from '../redux/actionCreators';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
+
 
 class Login extends Component {
   state = {
