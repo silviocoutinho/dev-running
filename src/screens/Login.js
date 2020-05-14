@@ -33,7 +33,8 @@ class Login extends Component {
     }
     return (
       <div>
-        <h1>Login {JSON.stringify(this.props)}</h1>
+        <h1>Tela de Login</h1>
+        <h5>Login {JSON.stringify(this.props)}</h5>
         <input
           type='text'
           value={this.state.form.email}

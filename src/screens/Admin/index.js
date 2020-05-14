@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 
 const Home = (props) => <h1>Home Admin</h1>;
 const Users = (props) => {
-  return <h1>Users Admin</h1>;
+  return (
+    <div>
+      <h1>Users Admin</h1>
+    </div>
+  );
 };
 
 const Admin = (props) => {
@@ -19,13 +23,12 @@ const Admin = (props) => {
     <div>
       <h1>Admin</h1>
       <p>
-        {JSON.stringify(props.auth)}
         <Link to='/admin'>Home </Link>
         <Link to='/admin/users'> Users </Link>
       </p>
       <div>
-        <Route exact path={`${props.match.path}/`} component={Home} />
-        <Route path={`${props.match.path}/users/`} component={Users} />
+        <Route exact path={`${path}/`} component={Home} />
+        <Route path={`${path}/users/`} component={Users} />
       </div>
     </div>
   );
