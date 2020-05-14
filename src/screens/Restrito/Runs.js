@@ -3,6 +3,9 @@ import ActionCreator from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 
 class Runs extends Component {
+  componentDidMount(){
+    this.props.load1();
+  }
   render() {
     return <h1>Runs</h1>;
   }
@@ -16,7 +19,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    load: () => dispatch(ActionCreator.getRunsRequest()),
+    load1: () => dispatch(ActionCreator.getRunsRequest()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Runs);
