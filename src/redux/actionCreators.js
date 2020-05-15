@@ -12,6 +12,12 @@ export const { Types, Creators } = createActions({
   getRunsRequest: null,
   getRunsSuccess: ['runs'],
   getRunsFailure: null,
+
+  //['friendly_name', 'duration', 'distance', 'created']
+  createRunRequest: ['run'],
+  createRunSuccess: ['run'],
+  createRunFailure: ['error'],
+
 });
 
 export default Creators;
