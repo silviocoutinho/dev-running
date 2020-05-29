@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route, Redirect, Link } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Home from './Home';
 import Runs from './Runs';
+import Header from './elements/Header';
 
 const Restrito = (props) => {
   if (!props.auth.isAuth) {
@@ -12,15 +13,10 @@ const Restrito = (props) => {
   const { path } = props.match;
   return (
     <div>
-      <h1>Restrito</h1>
-      <p>
-        <Link to='/restrito'>Home </Link>
-        <Link to='/restrito/users'> Runs </Link>
-      </p>
-      <div>
+        <Header />
         <Route exact path={`${path}/`} component={Home} />
         <Route path={`${path}/users/`} component={Runs} />
-      </div>
+      
     </div>
   );
 };

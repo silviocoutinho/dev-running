@@ -1,6 +1,8 @@
 import React from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import Header from './elements/Header';
 
 const Home = (props) => <h1>Home Admin</h1>;
 const Users = (props) => {
@@ -20,17 +22,14 @@ const Admin = (props) => {
     return <Redirect to='/restrito' />;
   }
   return (
-    <div>
-      <h1>Admin</h1>
-      <p>
-        <Link to='/admin'>Home </Link>
-        <Link to='/admin/users'> Users </Link>
-      </p>
+    
+      
       <div>
+        <Header />
         <Route exact path={`${path}/`} component={Home} />
         <Route path={`${path}/users/`} component={Users} />
       </div>
-    </div>
+   
   );
 };
 

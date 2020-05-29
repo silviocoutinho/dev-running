@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ActionCreator from '../../redux/actionCreators';
 import { connect } from 'react-redux';
+import { Table, Button } from 'semantic-ui-react';
 
 class Runs extends Component {
   componentDidMount(){
@@ -8,28 +9,36 @@ class Runs extends Component {
   }
   renderRun(run){
     return(
-      <tr>
-        <td>{run.friendly_name}</td>
-        <td>{run.duration}</td>
-        <td>{run.distance}</td>
-        <td>{run.created}</td>        
-      </tr>
+      <Table.Row>
+        <Table.Cell>{run.friendly_name}</Table.Cell>
+        <Table.Cell>{run.duration}</Table.Cell>
+        <Table.Cell>{run.distance}</Table.Cell>
+        <Table.Cell>{run.created}</Table.Cell>        
+      </Table.Row>
     )
   }
   render() {
     const run ={
       friendly_name: 'run para teste',
-      duration: 100,
-      distance: 101,
+      duration: 80,
+      distance: 71,
       created: '2020-05-05 00:00:00'
     }
     return (
       <div>
-        <h1>Runs</h1>
-        <button onClick={() => this.props.create(run)}>Create</button>
-        <table>
+        <h1>Corridas</h1>
+        <Button onClick={() => this.props.create(run)}>Create!</Button>
+        <Table celled>
+          <Table.Header>
+            <Table.HeaderCell>Nome</Table.HeaderCell>
+            <Table.HeaderCell>Duração</Table.HeaderCell>
+            <Table.HeaderCell>Distância</Table.HeaderCell>
+            <Table.HeaderCell>Data</Table.HeaderCell>
+          </Table.Header>
+          <Table.Body>
           { this.props.runs.data.map(this.renderRun)}
-        </table>
+          </Table.Body>          
+        </Table>
       </div>
       
       );
@@ -46,7 +55,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     load1: () => dispatch(ActionCreator.getRunsRequest()),
-    create: (run) => dispatch(ActionCreator.createRunRequest(run))
+    create: (run1) => dispatch(ActionCreator.createRunRequest(run1))
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Runs);
