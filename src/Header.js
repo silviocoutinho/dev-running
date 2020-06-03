@@ -10,10 +10,11 @@ const Header = (props) => {
   return (
     <Menu>
       <Menu.Item>Corridas</Menu.Item>  
-      <Menu.Item as={Link} to='/'>Home </Menu.Item>
+      <Menu.Item as={Link} to='/'>Home</Menu.Item>
       <Menu.Item as={Link} to='/admin'> Admin </Menu.Item>
       <Menu.Item as={Link} to='/restrito'> Restrito </Menu.Item>
       <Menu.Item as={Link} to='/login'> Login </Menu.Item>           
+
     </Menu>
   );
 };

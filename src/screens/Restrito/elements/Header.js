@@ -4,14 +4,23 @@ import ActionCreators from '../../../redux/actionCreators';
 
 import { Link } from 'react-router-dom';
 
-import { Menu } from 'semantic-ui-react';
+import { Menu, Dropdown } from 'semantic-ui-react';
 
 const Header = (props) => {
   return (
     <Menu>
       <Menu.Item as={Link} to='/'>Corridas: <b>&nbsp;Admin</b></Menu.Item>  
       <Menu.Item as={Link} to='/restrito'>Home</Menu.Item>
-      <Menu.Item as={Link} to='/restrito/users'>Corridas</Menu.Item>      
+      <Menu.Item as={Link} to='/restrito/users'>Corridas</Menu.Item>
+      <Menu.Menu position='right'>
+      <Dropdown item text={props.auth.user.name}>
+        <Dropdown.Menu>
+          <Dropdown.Item>Minha Conta</Dropdown.Item>
+          <Dropdown.Item>Alterar Senha</Dropdown.Item>
+          <Dropdown.Item onClick={props.logout}>Sair</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      </Menu.Menu>
     </Menu>
   );
 };
@@ -25,6 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     signin: (email, passwd) => ActionCreators.signinRequest(email, passwd),
+    logout: () => dispatch(ActionCreators.destroyAuthRequest())
   };
 };
 
