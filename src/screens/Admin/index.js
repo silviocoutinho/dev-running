@@ -21,15 +21,12 @@ const Admin = (props) => {
   if (props.auth.user.role !== 'admin') {
     return <Redirect to='/restrito' />;
   }
-  return (
-    
-      
+  return (   
       <div>
         <Header />
         <Route exact path={`${path}/`} component={Home} />
         <Route path={`${path}/users/`} component={Users} />
-      </div>
-   
+      </div>   
   );
 };
 
