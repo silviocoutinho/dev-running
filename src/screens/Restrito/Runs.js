@@ -3,6 +3,12 @@ import ActionCreator from '../../redux/actionCreators';
 import { connect } from 'react-redux';
 import { Table, Button } from 'semantic-ui-react';
 
+import Distance from './elements/Distance';
+import Duration from './elements/Duration';
+import DateStr from './elements/DateStr';
+
+
+
 class Runs extends Component {
   componentDidMount(){
     this.props.load1();
@@ -11,18 +17,18 @@ class Runs extends Component {
     return(
       <Table.Row>
         <Table.Cell>{run.friendly_name}</Table.Cell>
-        <Table.Cell>{run.duration}</Table.Cell>
-        <Table.Cell>{run.distance}</Table.Cell>
-        <Table.Cell>{run.created}</Table.Cell>        
+        <Table.Cell><Duration duration={run.duration} /></Table.Cell>
+        <Table.Cell><Distance distance={run.distance} metric={'miles'} /></Table.Cell>
+        <Table.Cell><DateStr date={run.created} timezone={'America/Sao_Paulo'} /></Table.Cell>        
       </Table.Row>
     )
   }
   render() {
     const run ={
       friendly_name: 'run para teste',
-      duration: 80,
+      duration: 4204,
       distance: 71,
-      created: '2020-05-05 00:00:00'
+      created: '2020-07-27 00:00:00'
     }
     return (
       <div>
